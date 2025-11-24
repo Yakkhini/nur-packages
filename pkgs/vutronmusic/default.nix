@@ -70,7 +70,6 @@
     mainProgram = "vutronmusic";
     homepage = "https://github.com/stark81/VutronMusic/";
     license = licenses.mit;
-    maintainers = with maintainers; [Yakkhini];
     platforms = builtins.attrNames srcs;
   };
 in
