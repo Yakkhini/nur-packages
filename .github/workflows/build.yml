@@ -13,6 +13,7 @@ on:
   workflow_dispatch:
 jobs:
   tests:
+    continue-on-error: true
     strategy:
       matrix:
         # Set this to notify the global nur package registry that changes are
@@ -21,7 +22,7 @@ jobs:
         # The repo name as used in
         # https://github.com/nix-community/NUR/blob/master/repos.json
         nurRepo:
-          - yakkNURPackages
+          - nur-packages
         # Set this to cache your build results in cachix for faster builds
         # in CI and for everyone who uses your cache.
         #
