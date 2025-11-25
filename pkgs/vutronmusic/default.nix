@@ -10,7 +10,6 @@
   libgcc,
   libxcb,
   libgbm,
-  libx11,
   libxkbcommon,
   libdrm,
   libnotify,
@@ -21,6 +20,7 @@
   mesa,
   udev,
   gtk3,
+  x11basic,
 }: let
   pname = "vutronmusic";
   version = "2.7.0";
@@ -50,9 +50,7 @@
     alsa-lib
     libgcc.lib
     libxcb
-    libx11
     libgbm
-    libxcb
     libxkbcommon
     libdrm
     libnotify
@@ -63,6 +61,7 @@
     mesa
     udev
     gtk3
+    x11basic
   ];
 
   meta = with lib; {
