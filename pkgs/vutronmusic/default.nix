@@ -66,11 +66,11 @@
 
   meta = with lib; {
     description = "Good-looking third-party netease cloud music player";
-    mainProgram = "vutronmusic";
+    mainProgram = "vutron";
     homepage = "https://github.com/stark81/VutronMusic/";
     downloadPage = "https://github.com/stark81/VutronMusic/releases";
     license = licenses.mit;
-    sourceProvenance = with sourceTypes; [ binaryNativeCode ];
+    sourceProvenance = with sourceTypes; [binaryNativeCode];
     platforms = builtins.attrNames srcs;
   };
 in
