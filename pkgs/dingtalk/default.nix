@@ -24,7 +24,6 @@
   fribidi,
   gdk-pixbuf,
   glib,
-  gtkglext,
   gnutls,
   graphite2,
   gtk3,
@@ -113,7 +112,6 @@ let
     fribidi
     gdk-pixbuf
     glib
-    gtkglext
     gnutls
     graphite2
     gtk3
@@ -210,6 +208,13 @@ in
       rm -rf release/Resources/{i18n/tool/*.exe,qss/mac}
 
       runHook postUnpack
+    '';
+
+    postPatch = ''
+      # doctor uses Qt and imports no GTK2/gtkglext symbols. Drop its unused
+      # DT_NEEDED entries so it does not pull in the retired GTK2 stack.
+      patchelf --remove-needed libgtk-x11-2.0.so.0 \
+        --remove-needed libgtkglext-x11-1.0.so.0 release/doctor
     '';
 
     installPhase = ''
